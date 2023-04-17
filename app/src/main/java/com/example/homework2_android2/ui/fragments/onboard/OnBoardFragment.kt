@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.homework2_android2.R
 import com.example.homework2_android2.databinding.ActivityMainBinding
 import com.example.homework2_android2.databinding.FragmentOnBoardBinding
 import com.example.homework2_android2.ui.adapters.OnBoardAdapter
+import com.example.homework2_android2.utils.PreferenceHelper
 import com.google.android.material.tabs.TabLayoutMediator
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 
@@ -34,6 +36,17 @@ class OnBoardFragment : Fragment() {
     }
 
     private fun initialize() {
+        val preferenceHelper = PreferenceHelper()
+        preferenceHelper.unit(requireContext())
+        val bool = preferenceHelper.saveBoolean
+
+        if (bool == true) {
+            val navController = findNavController()
+            val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+            navGraph.setStartDestination(R.id.homeFragment)
+            navController.graph = navGraph
+        }
+
         binding.viewPager.adapter = OnBoardAdapter(this)
     }
 

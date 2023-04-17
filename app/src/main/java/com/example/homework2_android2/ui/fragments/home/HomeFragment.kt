@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.homework2_android2.R
 import com.example.homework2_android2.databinding.FragmentHomeBinding
+import com.example.homework2_android2.utils.PreferenceHelper
 
 class HomeFragment : Fragment() {
 
@@ -18,5 +21,16 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        val preferenceHelper = PreferenceHelper()
+        preferenceHelper.unit(requireContext())
+        preferenceHelper.saveBoolean = true
     }
 }

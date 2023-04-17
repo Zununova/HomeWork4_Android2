@@ -11,6 +11,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
 import com.example.homework2_android2.R
 import com.example.homework2_android2.databinding.FragmentOnBoardPagingBinding
+import com.example.homework2_android2.utils.PreferenceHelper
 
 class OnBoardPagingFragment : Fragment() {
 
