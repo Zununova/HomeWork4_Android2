@@ -32,7 +32,7 @@ class OnBoardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initialize()
-        setupListener()
+        setupListeners()
     }
 
     private fun initialize() {
@@ -50,7 +50,7 @@ class OnBoardFragment : Fragment() {
         binding.viewPager.adapter = OnBoardAdapter(this)
     }
 
-    private fun setupListener() = with(binding.viewPager) {
+    private fun setupListeners() = with(binding.viewPager) {
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 binding.nextTxt.isInvisible = currentItem == 2

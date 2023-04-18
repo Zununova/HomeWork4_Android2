@@ -11,6 +11,7 @@ import com.example.homework2_android2.R
 import com.example.homework2_android2.databinding.FragmentHomeBinding
 import com.example.homework2_android2.utils.PreferenceHelper
 
+@Suppress("UNREACHABLE_CODE")
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
@@ -25,12 +26,19 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initialize()
     }
 
-    override fun onPause() {
-        super.onPause()
+    private fun initialize() {
         val preferenceHelper = PreferenceHelper()
         preferenceHelper.unit(requireContext())
-        preferenceHelper.saveBoolean = true
+        val bool = preferenceHelper.saveBoolean
+
+        if (bool == false) {
+            val navController = findNavController()
+            val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+            navGraph.setStartDestination(R.id.onBoardFragment)
+            navController.graph = navGraph
+        }
     }
 }
