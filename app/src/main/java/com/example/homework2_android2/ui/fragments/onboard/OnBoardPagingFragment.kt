@@ -57,6 +57,9 @@ class OnBoardPagingFragment : Fragment() {
 
     private fun onClick() {
         binding.fragmentOnBoardPagingText.setOnClickListener {
+            val preferenceHelper = PreferenceHelper()
+            preferenceHelper.unit(requireContext())
+            preferenceHelper.saveBoolean = true
             findNavController().navigate(R.id.action_onBoardFragment_to_homeFragment)
         }
     }
