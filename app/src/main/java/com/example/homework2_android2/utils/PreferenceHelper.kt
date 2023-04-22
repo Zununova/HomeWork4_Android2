@@ -2,8 +2,6 @@ package com.example.homework2_android2.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.homework2_android2.ui.App
-
 class PreferenceHelper {
 
     private var sharedPreferences: SharedPreferences? = null

@@ -9,53 +9,67 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:background="@color/dark_gray"
-            android:padding="20dp">
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="18dp"
-                android:layout_height="16dp"
-                android:layout_gravity="start"
-                android:src="@drawable/menu" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Заметки"
-                android:textColor="@color/gray"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:layout_gravity="top"
+                android:background="@color/dark_gray"
+                android:padding="20dp">
 
-            <ImageView
-                android:layout_width="18dp"
-                android:layout_height="16dp"
-                android:layout_gravity="end"
-                android:src="@drawable/type" />
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="start"
+                    android:src="@drawable/menu" />
 
-        </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Заметки"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-        <EditText
+                <ImageView
+                    android:id="@+id/changer"
+                    android:layout_width="18dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="end"
+                    android:src="@drawable/type" />
+
+            </FrameLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="28dp"
+                android:background="@drawable/edit_text_radius"
+                android:drawableStart="@drawable/search"
+                android:drawablePadding="11dp"
+                android:hint="Поиск заметок"
+                android:padding="11dp"
+                android:textColorHint="@color/just_gray" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="28dp"
-            android:background="@drawable/edit_text_radius"
-            android:drawableStart="@drawable/search"
-            android:drawablePadding="11dp"
-            android:hint="Поиск заметок"
-            android:padding="11dp"
-            android:textColorHint="@color/just_gray" />
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_on_click"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="end|bottom"
@@ -64,6 +78,5 @@
         android:text="+"
         android:textColor="@color/white"
         android:textSize="25sp" />
-
 
 </FrameLayout>
